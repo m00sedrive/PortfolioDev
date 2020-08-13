@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Maps";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGJlZGZvcmQiLCJhIjoiY2tkc3k5Yzh6MXRmeDJ0cGFsdWptcWIyeCJ9.niFphx4PNDbeD871GwyOqg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+</script>
