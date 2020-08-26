@@ -5,11 +5,15 @@
 
 <p>Use this page to detail your site's privacy policy.</p>
 
-<div id='map' style='width: 400px; height: 300px;'></div>
+<div id='map' style='width: 950px; height: 850px;'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidGJlZGZvcmQiLCJhIjoiY2tkc3k5Yzh6MXRmeDJ0cGFsdWptcWIyeCJ9.niFphx4PNDbeD871GwyOqg';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-0.970199, 51.442656],
+        pitch: 0,
+        bearing: 0,
+        zoom: 12
     });
 </script>
