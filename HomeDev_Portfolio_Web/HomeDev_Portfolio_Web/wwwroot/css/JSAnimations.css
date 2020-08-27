@@ -1,7 +1,7 @@
 ﻿* {
     margin: 0;
     padding: 0;
-    background-color: #2f2f2f;
+    background-color: white;
 }
 
 .main {
@@ -12,7 +12,7 @@
 
 .d1 {
     position: absolute;
-    background-image: url(https://newevolutiondesigns.com/images/freebies/4k-wallpaper-3.jpg);
+    background-image: url('/Images/ENA542SE6YI6HJEVMFFEDYZMBI.jpg');
     background-size: 2700px 1500px;
     height: 30vh;
     width: 15vw;
@@ -27,7 +27,7 @@
 
 .d2 {
     position: absolute;
-    background-image: url(https://newevolutiondesigns.com/images/freebies/4k-wallpaper-3.jpg);
+    background-image: url('/Images/ENA542SE6YI6HJEVMFFEDYZMBI.jpg');
     background-size: 2700px 1500px;
     height: 50vh;
     width: 25vw;
@@ -42,7 +42,7 @@
 
 .d3 {
     position: absolute;
-    background-image: url(https://newevolutiondesigns.com/images/freebies/4k-wallpaper-3.jpg);
+    background-image: url('/Images/ENA542SE6YI6HJEVMFFEDYZMBI.jpg');
     background-size: 2700px 1500px;
     overflow: hidden;
     height: 100vh;
@@ -60,7 +60,7 @@
 .d4 {
     position: absolute;
     overflow: hidden;
-    background-image: url(https://newevolutiondesigns.com/images/freebies/4k-wallpaper-3.jpg);
+    background-image: url('/Images/ENA542SE6YI6HJEVMFFEDYZMBI.jpg');
     background-size: 2700px 1500px;
     height: 80vh;
     width: 25vw;
