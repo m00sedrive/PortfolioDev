@@ -26,6 +26,11 @@ namespace HomeDev_Portfolio_Web.Controllers
             return View();
         }
 
+        public IActionResult SwitchController()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
