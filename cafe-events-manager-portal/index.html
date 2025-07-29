@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Admin Panel</title>
+
+    <link rel="stylesheet" href="css/site.css">
+    <script type="module" src="/js/site.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+</head>
+<body>
+    <div class="auth-bar">
+        <span id="userName"></span>
+        <button id="loginBtn" class="btn">Login</button>
+        <button id="logoutBtn" class="btn" style="display:none;">Logout</button>
+    </div>
+    <div class="container">
+        <h1>Cafe Admin Panel</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="tab" onclick="showTab('events')">Manage Events</button>
+            <button class="tab" onclick="showTab('bookings')">View Bookings</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalEvents">-</div>
+                    <div class="stat-label">Total Events</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalBookings">-</div>
+                    <div class="stat-label">Total Bookings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalRevenue">$-</div>
+                    <div class="stat-label">Total Revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="upcomingEvents">-</div>
+                    <div class="stat-label">Upcoming Events</div>
+                </div>
+            </div>
+            
+            <h3>Recent Bookings</h3>
+            <table class="bookings-table" id="recentBookingsTable">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Event</th>
+                        <th>Guests</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Recent bookings will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Events Tab -->
+        <div id="events" class="tab-content">
+            <h3>Add New Event</h3>
+            
+            <div class="success-message" id="eventSuccessMessage"></div>
+            <div class="error-message" id="eventErrorMessage"></div>
+            
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title *</label>
+                    <input type="text" id="eventTitle" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDescription">Description *</label>
+                    <textarea id="eventDescription" name="description" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventCategory">Category</label>
+                        <select id="eventCategory" name="category">
+                            <option value="Language">Language</option>
+                            <option value="Skills">Skills</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Culture">Culture</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventPrice">Price ($) *</label>
+                        <input type="number" id="eventPrice" name="price" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventMaxSpots">Max Spots *</label>
+                        <input type="number" id="eventMaxSpots" name="max_spots" min="1" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Add Event</button>
+            </form>
+            
+            <h3>Existing Events</h3>
+            <table class="events-table" id="eventsTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Price</th>
+                        <th>Spots</th>
+                        <th>Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Events will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bookings Tab -->
+        <div id="bookings" class="tab-content">
+            <h3>All Bookings</h3>
+            <table class="bookings-table" id="allBookingsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Event</th>
+                        <th>Guests</th>
+                        <th>Booking Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bookings will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html> for="eventDate">Date *</label>
+                        <input type="date" id="eventDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Time *</label>
+                        <input type="time" id="eventTime" name="time" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventDuration">Duration</label>
+                        <input type="text" id="eventDuration" name="duration" placeholder="e.g., 2 hours">
+                    </div>
+                    <div class="form-group">
+                        <label
