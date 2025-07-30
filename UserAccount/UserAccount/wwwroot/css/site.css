@@ -1,0 +1,70 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #757374;
+}
+
+/* Set background and text colors for your navbar */
+.custom-navbar {
+    background-color: #31B9E9;
+}
+
+    .custom-navbar .nav-link {
+        color: white; /* Nav links text color */
+    }
+
+        .custom-navbar .nav-link:hover {
+            color: #ffcc00; /* Hover color for links */
+        }
+
+    .custom-navbar .navbar-brand img {
+        filter: brightness(0) invert(1); /* Optional: make logo white if needed */
+    }
+
+/* Make nav items display in one line */
+.nav-pipes {
+    display: flex;
+    align-items: center;
+}
+
+    .nav-pipes .nav-item {
+        display: flex;
+        align-items: center;
+    }
+
+        /* Adds | between nav items */
+        .nav-pipes .nav-item:not(:last-child)::after {
+            content: "|";
+            color: white;
+            margin-left: 12px;
+            margin-right: 12px;
+            opacity: 0.7;
+            display: inline-block;
+            line-height: 1; /* Keeps the | aligned vertically */
+        }
+
+    .nav-pipes .nav-link {
+        color: white;
+    }
+
+        .nav-pipes .nav-link:hover {
+            color: #ffcc00;
+        }
