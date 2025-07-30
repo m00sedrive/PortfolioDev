@@ -31,6 +31,7 @@
             display: flex;
             margin-bottom: 2rem;
             border-bottom: 2px solid #e1e5e9;
+            flex-wrap: wrap;
         }
 
         .tab {
@@ -42,19 +43,38 @@
             font-weight: 600;
             color: #666;
             transition: all 0.3s ease;
+            border-radius: 10px 10px 0 0;
         }
 
         .tab.active {
             color: #764ba2;
+            background: rgba(118, 75, 162, 0.1);
             border-bottom: 3px solid #764ba2;
+        }
+
+        .tab:hover {
+            background: rgba(118, 75, 162, 0.05);
         }
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.3s ease-in;
         }
 
         .tab-content.active {
             display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .form-group {
@@ -77,6 +97,7 @@
             border-radius: 10px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
@@ -103,6 +124,9 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
         }
 
         .btn:hover {
@@ -110,8 +134,18 @@
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         }
 
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .btn-danger {
             background: linear-gradient(45deg, #f44336, #d32f2f);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
         }
 
         .btn-small {
@@ -119,47 +153,43 @@
             font-size: 0.9rem;
         }
 
-        .events-table {
+        .events-table,
+        .bookings-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .events-table th,
-        .events-table td {
+        .events-table td,
+        .bookings-table th,
+        .bookings-table td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #e1e5e9;
         }
 
-        .events-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .events-table tr:hover {
-            background: #f8f9fa;
-        }
-
-        .bookings-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .bookings-table th,
-        .bookings-table td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #e1e5e9;
-            font-size: 0.9rem;
-        }
-
+        .events-table th,
         .bookings-table th {
             background: #f8f9fa;
             font-weight: 600;
             color: #555;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .events-table tr:hover,
+        .bookings-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .bookings-table {
+            font-size: 0.9rem;
         }
 
         .success-message,
@@ -169,6 +199,7 @@
             margin: 1rem 0;
             text-align: center;
             display: none;
+            font-weight: 600;
         }
 
         .success-message {
@@ -194,6 +225,11 @@
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
@@ -207,18 +243,116 @@
             opacity: 0.9;
         }
 
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border: 2px solid #667eea;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .status-confirmed {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .status-pending {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .status-cancelled {
+            background: #ffebee;
+            color: #c62828;
+        }
+
         @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
 
             .container {
                 padding: 1rem;
-                margin: 1rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                text-align: center;
             }
 
             .events-table,
             .bookings-table {
                 font-size: 0.8rem;
             }
+
+            .events-table td,
+            .events-table th,
+            .bookings-table td,
+            .bookings-table th {
+                padding: 0.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .config-warning {
+            background: linear-gradient(45deg, #ff9800, #f57c00);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
         }
